@@ -6,6 +6,7 @@ template <class T>
 class Matrix {
     public:
         /* Constructors:
+            *** Matricies 
             (1): Default constructor
             (2): Constructor set to m x n
             (3): Constructor set to m x n and takes in
@@ -32,6 +33,10 @@ class Matrix {
         
         int numRows();
         int numColumns();
+    private:
+        double *matrixData;
+        int nRows, nColumns, nElements;
 };
+
 
 #endif      
