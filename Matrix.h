@@ -1,7 +1,6 @@
 #ifndef MATRIX_HPP
 #define MATRIX_HPP
 
-template <class T>
 
 class Matrix {
     public:
@@ -18,7 +17,7 @@ class Matrix {
         Matrix(int numRows, int numColumns);
         Matrix(int numRows, int numColumns, double *input);
         Matrix(const Matrix &MatrixforCopy);
-        ~Matrix();
+        // ~Matrix();
 
         // Ability to resize matrix; returns bool
         // T of F to determine if the resize was
@@ -30,9 +29,14 @@ class Matrix {
 
         // Sets element at m x n to input value.
         void setElement(int row, int column, double in); 
+
+        // Visual display of matrix.
+        void displayMatrix();
         
         int numRows();
         int numColumns();
+        int numElements();
+        
     private:
         double *matrixData;
         int nRows, nColumns, nElements;
