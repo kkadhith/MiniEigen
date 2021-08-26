@@ -1,6 +1,7 @@
-#ifndef MATRIX_HPP
-#define MATRIX_HPP
+#ifndef MATRIX_H
+#define MATRIX_H
 
+using namespace std::vector;
 
 class Matrix {
     public:
