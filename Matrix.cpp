@@ -1,11 +1,14 @@
 #include <iostream>
+#include <vector>
 #include "Matrix.h"
+
 
 Matrix::Matrix() {
     nRows = 0;
     nColumns = 0;
     nElements = 0;
-    matrixData = vector<double> m(0);
+    std::vector<double> m;
+    matrixData = m;
 }
 
 Matrix::Matrix(int numRows, int numColumns) {
@@ -13,10 +16,11 @@ Matrix::Matrix(int numRows, int numColumns) {
     nColumns = numColumns;
     nElements = nRows * nColumns;
 
-    matrixData = vector<double> data(nElements, 0.0);
+    std::vector<double> data(nElements, 0.0);
+    matrixData = data;
 }
 
-Matrix::Matrix(int numRows, int numColumns, vector<double> input) {
+Matrix::Matrix(int numRows, int numColumns, std::vector<double> input) {
     nRows = numRows;
     nColumns = numColumns;
     nElements = nRows * nColumns;
