@@ -15,8 +15,8 @@ class Matrix {
         */
         Matrix();
         Matrix(int numRows, int numColumns);
-        Matrix(int numRows, int numColumns, double *input);
-        Matrix(const Matrix &MatrixforCopy);
+        Matrix(int numRows, int numColumns, vector<double> input);
+        Matrix(const Matrix &matrixCpy);
         // ~Matrix();
 
         // Ability to resize matrix; returns bool
@@ -38,7 +38,7 @@ class Matrix {
         int numElements();
         
     private:
-        double *matrixData;
+        vector<double> matrixData;
         int nRows, nColumns, nElements;
 };
 
