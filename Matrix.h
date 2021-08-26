@@ -34,9 +34,17 @@ class Matrix {
         // Visual display of matrix.
         void displayMatrix();
         
+        // Retrieve private members.
         int numRows();
         int numColumns();
         int numElements();
+
+        // OStream overloading:
+        friend std::ostream& operator<<(std::ostream& os, const Matrix& mtx);
+
+        // Basic Matrix Manipulation.
+        
+
         
     private:
         std::vector<double> matrixData;
