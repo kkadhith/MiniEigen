@@ -1,6 +1,12 @@
 #include <iostream>
 #include "Matrix.h"
 
+Matrix::Matrix() {
+    nRows = 0;
+    nColumns = 0;
+    nElements = 0;
+    matrixData = vector<double> m(0);
+}
 
 Matrix::Matrix(int numRows, int numColumns) {
     nRows = numRows;
@@ -13,6 +19,11 @@ Matrix::Matrix(int numRows, int numColumns) {
         matrixData[i] = 0.0;
     }
 }
+
+Matrix();
+        Matrix(int numRows, int numColumns);
+        Matrix(int numRows, int numColumns, vector<double> input);
+        Matrix(const Matrix &matrixCpy);
 
 void Matrix::displayMatrix() {
     for (int i = 0; i < nElements; i++) {
