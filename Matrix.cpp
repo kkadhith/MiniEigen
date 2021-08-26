@@ -31,6 +31,7 @@ Matrix::Matrix(const Matrix &matrixCpy) {
     nRows = matrixCpy.nRows;
     nColumns = matrixCpy.nColumns;
     nElements = matrixCpy.nElements;
+    matrixData = matrixCpy.matrixData;
 }
 
 void Matrix::displayMatrix() {
@@ -50,5 +51,13 @@ int Matrix::numRows() {
 
 int Matrix::numColumns() {
     return nColumns;
+}
+
+std::ostream& operator<<(std::ostream& os, const Matrix& mtx) {
+    for (int i = 0; i < mtx.nElements - 1; i++) {
+        os << mtx.matrixData[i] << " ";
+    }
+    os << mtx.matrixData[mtx.nElements-1] << std::endl;
+    return os;
 }
 
