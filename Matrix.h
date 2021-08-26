@@ -1,7 +1,7 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 
-using namespace std::vector;
+#include <vector>
 
 class Matrix {
     public:
@@ -16,7 +16,7 @@ class Matrix {
         */
         Matrix();
         Matrix(int numRows, int numColumns);
-        Matrix(int numRows, int numColumns, vector<double> input);
+        Matrix(int numRows, int numColumns, std::vector<double> input);
         Matrix(const Matrix &matrixCpy);
         // ~Matrix();
 
@@ -39,7 +39,7 @@ class Matrix {
         int numElements();
         
     private:
-        vector<double> matrixData;
+        std::vector<double> matrixData;
         int nRows, nColumns, nElements;
 };
 
