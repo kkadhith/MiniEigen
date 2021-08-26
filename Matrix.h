@@ -16,7 +16,7 @@ class Matrix {
         */
         Matrix();
         Matrix(int numRows, int numColumns);
-        Matrix(int numRows, int numColumns, std::vector<double> input);
+        Matrix(int numRows, int numColumns, std::vector<double> &input);
         Matrix(const Matrix &matrixCpy);
         // ~Matrix();
 
@@ -47,7 +47,6 @@ class Matrix {
         friend Matrix operator+(Matrix &m1, Matrix &m2);
         friend Matrix operator-(Matrix &m1, Matrix &m2);
         friend Matrix operator*(Matrix &m1, Matrix &m2);
-        friend Matrix operator/(Matrix &m1, Matrix &m2);
         
 
         
