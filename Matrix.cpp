@@ -13,17 +13,21 @@ Matrix::Matrix(int numRows, int numColumns) {
     nColumns = numColumns;
     nElements = nRows * nColumns;
 
-    matrixData = new double[nElements];
-    
-    for (int i = 0; i < nElements; i++) {
-        matrixData[i] = 0.0;
-    }
+    matrixData = vector<double> data(nElements, 0.0);
 }
 
-Matrix();
-        Matrix(int numRows, int numColumns);
-        Matrix(int numRows, int numColumns, vector<double> input);
-        Matrix(const Matrix &matrixCpy);
+Matrix::Matrix(int numRows, int numColumns, vector<double> input) {
+    nRows = numRows;
+    nColumns = numColumns;
+    nElements = nRows * nColumns;
+    matrixData = input;
+}
+
+Matrix::Matrix(const Matrix &matrixCpy) {
+    nRows = matrixCpy.nRows;
+    nColumns = matrixCpy.nColumns;
+    nElements = matrixCpy.nElements;
+}
 
 void Matrix::displayMatrix() {
     for (int i = 0; i < nElements; i++) {
