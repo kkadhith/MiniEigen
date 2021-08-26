@@ -20,7 +20,7 @@ Matrix::Matrix(int numRows, int numColumns) {
     matrixData = data;
 }
 
-Matrix::Matrix(int numRows, int numColumns, std::vector<double> input) {
+Matrix::Matrix(int numRows, int numColumns, std::vector<double> &input) {
     nRows = numRows;
     nColumns = numColumns;
     nElements = nRows * nColumns;
