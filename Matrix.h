@@ -43,6 +43,11 @@ class Matrix {
         friend std::ostream& operator<<(std::ostream& os, const Matrix& mtx);
 
         // Basic Matrix Manipulation.
+
+        friend Matrix operator+(Matrix &m1, Matrix &m2);
+        friend Matrix operator-(Matrix &m1, Matrix &m2);
+        friend Matrix operator*(Matrix &m1, Matrix &m2);
+        friend Matrix operator/(Matrix &m1, Matrix &m2);
         
 
         
