@@ -92,7 +92,7 @@ Matrix operator*(Matrix &m1, Matrix &m2) {
     std::vector<double> resvec(resElements);
     for (int i = 0; i < m1.nRows; i++) {
         for (int j = 0; j < m2.nColumns; j++) {
-            double element = 0.0;
+            double element = 0.0; 
             for (int k = 0; k < m2.nColumns; k++) {
                 int index1 = (i * m1.nColumns) + k;
                 int index2 = (k * m2.nColumns) + j;
