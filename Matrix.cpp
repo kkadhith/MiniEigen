@@ -74,11 +74,32 @@ Matrix operator+(Matrix &m1, Matrix &m2) {
 }
 
 Matrix operator-(Matrix &m1, Matrix &m2) {
-        int resRows = m1.nRows;
+    int resRows = m1.nRows;
     int resColumns = m1.nColumns;
     int resElements = m1.nElements;
     std::vector<double> resvec(resElements);
     for (int i = 0; i < resElements; i++) {
+        resvec[i] = m1.matrixData[i] - m2.matrixData[i];
+    }
+    Matrix res = Matrix(resRows, resColumns, resvec);
+    return res;
+}
+
+Matrix operator*(Matrix &m1, Matrix &m2) {
+    int resRows = m1.nRows;
+    int resColumns = m2.nColumns;
+    int resElements = resRows * resColumns;
+    std::vector<double> resvec(resElements);
+    for (int i = 0; i < m1.nRows; i++) {
+        for (int j = 0; j < m2.nColumns; j++) {
+            double element = 0.0;
+            for (int k = 0; k < m2.nColumns; k++) {
+                int index1 = (i * m1.nColumns) + k;
+                int index2 = (k * m2.nColumns) + j;
+
+                element += (m1.matrixData[index1] * m2.matrixData[index2]); 
+            }
+        }
         resvec[i] = m1.matrixData[i] - m2.matrixData[i];
     }
     Matrix res = Matrix(resRows, resColumns, resvec);
