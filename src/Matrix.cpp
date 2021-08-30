@@ -53,13 +53,7 @@ int Matrix::numColumns() {
     return nColumns;
 }
 
-std::ostream& operator<<(std::ostream& os, const Matrix& mtx) {
-    for (int i = 0; i < mtx.nElements - 1; i++) {
-        os << mtx.matrixData[i] << " ";
-    }
-    os << mtx.matrixData[mtx.nElements-1] << std::endl;
-    return os;
-}
+
 
 Matrix operator+(Matrix &m1, Matrix &m2) {
     int resRows = m1.nRows;
@@ -93,14 +87,15 @@ Matrix operator*(Matrix &m1, Matrix &m2) {
     for (int i = 0; i < m1.nRows; i++) {
         for (int j = 0; j < m2.nColumns; j++) {
             double element = 0.0; 
-            for (int k = 0; k < m2.nColumns; k++) {
+            for (int k = 0; k < m1.nColumns; k++) {
                 int index1 = (i * m1.nColumns) + k;
                 int index2 = (k * m2.nColumns) + j;
 
                 element += (m1.matrixData[index1] * m2.matrixData[index2]); 
             }
+            int index = (i * m2.nColumns) + j;
+            resvec[index] = element;
         }
-        resvec[i] = m1.matrixData[i] - m2.matrixData[i];
     }
     Matrix res = Matrix(resRows, resColumns, resvec);
     return res;
