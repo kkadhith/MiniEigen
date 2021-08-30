@@ -53,7 +53,19 @@ int Matrix::numColumns() {
     return nColumns;
 }
 
-
+std::ostream& operator<<(std::ostream& os, const Matrix& mtx) {
+    int n = 0;
+    for (int i = 0; i < mtx.nElements; i++) {
+        int j = i+1;
+        os << mtx.matrixData[i] << " ";
+        j = j / mtx.nColumns;
+        if (j == n+1) {
+            os << std::endl;
+            n++;
+        }
+    }
+    return os;
+}
 
 Matrix operator+(Matrix &m1, Matrix &m2) {
     int resRows = m1.nRows;
