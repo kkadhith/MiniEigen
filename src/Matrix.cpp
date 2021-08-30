@@ -122,3 +122,12 @@ Matrix operator*(Matrix &m1, double scalar) {
     Matrix res = Matrix(m1.nRows, m1.nColumns, resVec);
     return res;
 }
+Matrix operator*(double scalar, Matrix &m1) {
+    std::vector<double> resVec(m1.nElements);
+
+    for (int i = 0; i < m1.nElements; i++) {
+        resVec[i] = m1.matrixData[i] * scalar;
+    }
+    Matrix res = Matrix(m1.nRows, m1.nColumns, resVec);
+    return res;
+}
