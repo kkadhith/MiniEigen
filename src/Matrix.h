@@ -42,11 +42,16 @@ class Matrix {
         // OStream overloading:
         friend std::ostream& operator<<(std::ostream& os, const Matrix& mtx);
 
-        // Basic Matrix Manipulation.
+        // Basic Matrix Manipulation. (Matrix by Matrix)
 
         friend Matrix operator+(Matrix &m1, Matrix &m2);
         friend Matrix operator-(Matrix &m1, Matrix &m2);
         friend Matrix operator*(Matrix &m1, Matrix &m2);
+
+        // Scalar * Matrix Operation
+
+        friend Matrix operator*(Matrix &m1, double scalar);
+        friend Matrix operator*(double scalar, Matrix &m1);
         
 
         
