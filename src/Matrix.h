@@ -2,7 +2,7 @@
 #define MATRIX_H
 
 #include <vector>
-
+namespace MiniEigen {
 class Matrix {
     public:
         /* Constructors:
@@ -42,13 +42,13 @@ class Matrix {
         // OStream overloading:
         friend std::ostream& operator<<(std::ostream& os, const Matrix& mtx);
 
-        // Basic Matrix Manipulation. (Matrix by Matrix)
+        // // Basic Matrix Manipulation. (Matrix by Matrix)
 
         friend Matrix operator+(Matrix &m1, Matrix &m2);
         friend Matrix operator-(Matrix &m1, Matrix &m2);
         friend Matrix operator*(Matrix &m1, Matrix &m2);
 
-        // Scalar * Matrix Operation
+        // // Scalar * Matrix Operation
 
         friend Matrix operator*(Matrix &m1, double scalar);
         friend Matrix operator*(double scalar, Matrix &m1);
@@ -59,6 +59,6 @@ class Matrix {
         std::vector<double> matrixData;
         int nRows, nColumns, nElements;
 };
-
+}
 
 #endif      
