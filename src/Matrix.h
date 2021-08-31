@@ -53,9 +53,12 @@ class Matrix {
         friend Matrix operator*(Matrix &m1, double scalar);
         friend Matrix operator*(double scalar, Matrix &m1);
         
+        // Access element of MxN Matrix
+        
+        double at(int row, int column);
 
         
-    private:
+    protected:
         std::vector<double> matrixData;
         int nRows, nColumns, nElements;
 };
