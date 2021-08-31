@@ -3,7 +3,7 @@
 #include "Matrix.h"
 
 
-Matrix::Matrix() {
+MiniEigen::Matrix::Matrix() {
     nRows = 0;
     nColumns = 0;
     nElements = 0;
@@ -11,7 +11,7 @@ Matrix::Matrix() {
     matrixData = m;
 }
 
-Matrix::Matrix(int numRows, int numColumns) {
+MiniEigen::Matrix::Matrix(int numRows, int numColumns) {
     nRows = numRows;
     nColumns = numColumns;
     nElements = nRows * nColumns;
@@ -20,40 +20,41 @@ Matrix::Matrix(int numRows, int numColumns) {
     matrixData = data;
 }
 
-Matrix::Matrix(int numRows, int numColumns, std::vector<double> &input) {
+MiniEigen::Matrix::Matrix(int numRows, int numColumns, std::vector<double> &input) {
     nRows = numRows;
     nColumns = numColumns;
     nElements = nRows * nColumns;
     matrixData = input;
 }
 
-Matrix::Matrix(const Matrix &matrixCpy) {
+MiniEigen::Matrix::Matrix(const Matrix &matrixCpy) {
     nRows = matrixCpy.nRows;
     nColumns = matrixCpy.nColumns;
     nElements = matrixCpy.nElements;
     matrixData = matrixCpy.matrixData;
 }
 
-void Matrix::displayMatrix() {
+void MiniEigen::Matrix::displayMatrix() {
     for (int i = 0; i < nElements; i++) {
         std::cout << matrixData[i] << " ";
     }
     std::cout << std::endl;
 }
 
-int Matrix::numElements() {
+int MiniEigen::Matrix::numElements() {
     return nElements;
 }
 
-int Matrix::numRows() {
+int MiniEigen::Matrix::numRows() {
     return nRows;
 }
 
-int Matrix::numColumns() {
+int MiniEigen::Matrix::numColumns() {
     return nColumns;
 }
 
-std::ostream& operator<<(std::ostream& os, const Matrix& mtx) {
+namespace MiniEigen {
+std::ostream& operator<<(std::ostream& os, const MiniEigen::Matrix& mtx) {
     int n = 0;
     for (int i = 0; i < mtx.nElements; i++) {
         int j = i+1;
@@ -66,6 +67,7 @@ std::ostream& operator<<(std::ostream& os, const Matrix& mtx) {
     }
     return os;
 }
+
 
 Matrix operator+(Matrix &m1, Matrix &m2) {
     int resRows = m1.nRows;
@@ -130,4 +132,5 @@ Matrix operator*(double scalar, Matrix &m1) {
     }
     Matrix res = Matrix(m1.nRows, m1.nColumns, resVec);
     return res;
+}
 }
