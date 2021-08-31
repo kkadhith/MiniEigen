@@ -133,4 +133,10 @@ Matrix operator*(double scalar, Matrix &m1) {
     Matrix res = Matrix(m1.nRows, m1.nColumns, resVec);
     return res;
 }
+
+double Matrix::at(int row, int column) {
+    int index = (row * nColumns) + column;
+    return matrixData[index];
+}
+
 }
