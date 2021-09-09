@@ -16,7 +16,8 @@ namespace MiniEigen {
     MiniEigen::Vector::Vector() {
     nRows = 0;
     nColumns = 0;
-}
+    
+    }
 }
 
 
