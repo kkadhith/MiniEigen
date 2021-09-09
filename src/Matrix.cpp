@@ -3,6 +3,8 @@
 #include "Matrix.h"
 
 
+
+
 MiniEigen::Matrix::Matrix() {
     nRows = 0;
     nColumns = 0;
@@ -93,7 +95,12 @@ Matrix operator-(Matrix &m1, Matrix &m2) {
     return res;
 }
 
-Matrix operator*(Matrix &m1, Matrix &m2) {
+Matrix operator*(Matrix &m1, Matrix &m2) { 
+    if (m1.nColumns != m2.nRows) {
+        Matrix mm;
+        std::cout << "EXCEPTION: Invalid operation between these two matricies. Returning empty matrix." << '\n';
+        return mm;
+    }
     int resRows = m1.nRows;
     int resColumns = m2.nColumns;
     int resElements = resRows * resColumns;
